@@ -44,7 +44,7 @@ function Comments () {
             </div>
             </Box>
             <br/><br/>
-            <Button onClick={event => sendComments(event)} variant="contained">Submit</Button>
+            <Button onClick={event => sendComments(event)} variant="contained">Next</Button>
         </div>
     )
 };
