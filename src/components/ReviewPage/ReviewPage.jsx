@@ -10,8 +10,21 @@ function ReviewPage () {
     const supportInput = useSelector(store => store.supportInput);
     const commentsInput = useSelector(store => store.commentsInput);
 
+    const dataToSend = {
+        feeling: feelingInput,
+        understanding: understandingInput,
+        support: supportInput,
+        comments: commentsInput
+    }
+
     const onSuccess = () => {
-        console.log('success')
+        axios.post('/feedback', dataToSend)
+            .then(res => {
+                console.log('post success', res);
+            })
+            .catch(err => {
+                console.error('post failure', err);
+            })
     }
 
     return (

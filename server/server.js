@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-const dataRouter = require('./routes/data.route');
+const dataRouter = require('./routes/data.router.js');
 app.use('/feedback', dataRouter);
 
 
