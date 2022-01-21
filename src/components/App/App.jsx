@@ -42,7 +42,7 @@ function App() {
       <ReviewPage />
     </Route>
 
-    <Route path="/review" exact>
+    <Route path="/success" exact>
       <SuccessPage />
     </Route>
 
