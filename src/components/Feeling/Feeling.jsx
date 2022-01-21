@@ -17,7 +17,7 @@ function Feeling () {
     const history = useHistory();
     const [feelingRating, setFeelingRating] = useState('');
 
-    const sendFeelingRating = (event) => {
+    const sendFeelingRating = () => {
 
         dispatch({
             type: 'INPUT_FEELING',
