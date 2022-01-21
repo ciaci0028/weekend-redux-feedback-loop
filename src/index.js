@@ -14,7 +14,9 @@ import logger from "redux-logger";
 const feelingInput = (state = null, action) => {
     switch(action.type) {
         case 'INPUT_FEELING':
-            return action.payload
+            return action.payload;
+        case 'RESET_VALUES':
+            return state = null;
     }
     return state;
 };
@@ -22,7 +24,9 @@ const feelingInput = (state = null, action) => {
 const understandingInput = (state = null, action) => {
     switch(action.type) {
         case 'INPUT_UNDERSTANDING':
-            return action.payload
+            return action.payload;
+        case 'RESET_VALUES':
+            return state = null;
     }
     return state;
 };
@@ -30,7 +34,9 @@ const understandingInput = (state = null, action) => {
 const supportInput = (state = null, action) => {
     switch(action.type) {
         case 'INPUT_SUPPORT':
-            return action.payload
+            return action.payload;
+        case 'RESET_VALUES':
+            return state = null;
     }
     return state;
 };
@@ -38,7 +44,9 @@ const supportInput = (state = null, action) => {
 const commentsInput = (state = null, action) => {
     switch(action.type) {
         case 'INPUT_COMMENTS':
-            return action.payload
+            return action.payload;
+        case 'RESET_VALUES':
+            return state = null;
     }
     return state;
 };

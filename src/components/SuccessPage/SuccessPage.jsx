@@ -4,12 +4,26 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import Button from '@mui/material/Button';
+import {useHistory} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+
 
 function SuccessPage () {
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const handleSubmit = () => {
+        history.push('/');
+
+        dispatch({
+            type: 'RESET_VALUES'
+        })
+    }
     return (
         <div className="container">
             <div>
-                <Card sx={{ maxWidth: 345 }}>
+                <Card className="card" sx={{ maxWidth: 345 }}>
                     <CardActionArea>
                         <CardMedia
                             component="img"
@@ -27,6 +41,7 @@ function SuccessPage () {
                         </CardContent>
                     </CardActionArea>
                 </Card>
+                <Button onClick={handleSubmit} variant="contained">Submit More Feedback</Button>
             </div>
         </div>
     )
