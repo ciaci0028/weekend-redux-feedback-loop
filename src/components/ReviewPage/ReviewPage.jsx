@@ -1,5 +1,6 @@
 import {useSelector} from 'react-redux';
 import Button from '@mui/material/Button';
+import axios from 'axios';
 
 
 function ReviewPage () {
@@ -9,7 +10,9 @@ function ReviewPage () {
     const supportInput = useSelector(store => store.supportInput);
     const commentsInput = useSelector(store => store.commentsInput);
 
-    
+    const onSuccess = () => {
+        console.log('success')
+    }
 
     return (
         <div className="container">
