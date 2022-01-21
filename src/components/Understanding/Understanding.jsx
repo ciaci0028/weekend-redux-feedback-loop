@@ -1,10 +1,3 @@
-    return (
-        <>
-        </>
-    )
-};
-
-
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
@@ -22,16 +15,16 @@ import {useHistory} from 'react-router-dom';
 function Understanding () {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [feelingRating, setFeelingRating] = useState('');
+    const [understandingRating, setUnderstandingRating] = useState('');
 
-    const sendFeelingRating = (event) => {
+    const sendUnderstandingRating = () => {
 
         dispatch({
-            type: 'INPUT_FEELING',
-            payload: feelingRating
+            type: 'INPUT_UNDERSTANDING',
+            payload: understandingRating
         })
 
-        history.push('/understanding');
+        history.push('/support');
 
     }
 
@@ -74,9 +67,9 @@ function Understanding () {
                 name="highlight-selected-only"
                 IconContainerComponent={IconContainer}
                 highlightSelectedOnly
-                onChange={event => setFeelingRating(event.target.value)}
+                onChange={event => setUnderstandingRating(event.target.value)}
             /><br/><br/>
-            <Button onClick={sendFeelingRating} variant="contained">Next</Button>
+            <Button onClick={sendUnderstandingRating} variant="contained">Next</Button>
         </div>
     )
 };
