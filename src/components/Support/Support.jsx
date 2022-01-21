@@ -19,13 +19,18 @@ function Support () {
 
     const sendSupportRating = () => {
 
-        dispatch({
-            type: 'INPUT_SUPPORT',
-            payload: supportRating
-        })
+        if (supportRating === ''){
+            alert('Please select an option')
+        }
 
-        history.push('/comments');
+        else {
+            dispatch({
+                type: 'INPUT_SUPPORT',
+                payload: supportRating
+            })
 
+            history.push('/comments');
+        }      
     }
 
     const customIcons = {

@@ -19,13 +19,19 @@ function Feeling () {
 
     const sendFeelingRating = () => {
 
-        dispatch({
-            type: 'INPUT_FEELING',
-            payload: feelingRating
-        })
+        if (feelingRating === ''){
+            alert('Please select an option before moving on')
+        }
 
-        history.push('/understanding');
+        else{
 
+            dispatch({
+                type: 'INPUT_FEELING',
+                payload: feelingRating
+            })
+
+            history.push('/understanding');
+        }
     }
 
     const customIcons = {

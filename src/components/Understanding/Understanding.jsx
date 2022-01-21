@@ -19,13 +19,18 @@ function Understanding () {
 
     const sendUnderstandingRating = () => {
 
-        dispatch({
-            type: 'INPUT_UNDERSTANDING',
-            payload: understandingRating
-        })
+        if (understandingRating === ''){
+            alert('Please select a choice')
+        }
 
-        history.push('/support');
+        else{
+            dispatch({
+                type: 'INPUT_UNDERSTANDING',
+                payload: understandingRating
+            })
 
+            history.push('/support');
+        }
     }
 
     const customIcons = {

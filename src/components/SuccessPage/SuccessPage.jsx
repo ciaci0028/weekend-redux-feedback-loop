@@ -14,7 +14,7 @@ function SuccessPage () {
                         <CardMedia
                             component="img"
                             height="140"
-                            image="./Prime Logo White.webp"
+                            image=""
                             alt="prime logo"
                         />
                         <CardContent>
