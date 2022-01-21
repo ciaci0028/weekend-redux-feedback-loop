@@ -1,9 +1,12 @@
 import {useSelector} from 'react-redux';
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import {useHistory} from 'react-router-dom';
+
 
 
 function ReviewPage () {
+    const history = useHistory();
 
     const feelingInput = useSelector(store => store.feelingInput);
     const understandingInput = useSelector(store => store.understandingInput);
@@ -21,6 +24,7 @@ function ReviewPage () {
         axios.post('/feedback', dataToSend)
             .then(res => {
                 console.log('post success', res);
+                history.push('/success');
             })
             .catch(err => {
                 console.error('post failure', err);
