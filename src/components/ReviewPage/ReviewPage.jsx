@@ -31,14 +31,34 @@ function ReviewPage () {
             })
     }
 
+    const goToFeeling = () => {
+        history.push('/');
+    }
+
+    const goToUnderstanding = () => {
+        history.push('/understanding')
+    }
+
+    const goToSupport = () => {
+        history.push('/support')
+    }
+
+    const goToComments = () => {
+        history.push('/comments')
+    }
+
     return (
         <div className="container">
             <h1>Please review your feedback</h1>
             <p>Feeling Rating: {feelingInput}</p>
+            <Button onClick={goToFeeling} variant="contained">Edit Feeling Rating</Button>
             <p>Understanding Rating: {understandingInput}</p>
+            <Button onClick={goToUnderstanding} variant="contained">Edit Understanding Rating</Button>
             <p>Support Rating: {supportInput}</p>
+            <Button onClick={goToSupport} variant="contained">Edit Support Rating</Button>
             <p>Comments: {commentsInput}</p>
-            <br/>
+            <Button onClick={goToComments} variant="contained">Edit Comments</Button>
+            <br/><br/>
             <Button onClick={onSuccess} variant="contained">Submit</Button>
         </div>
     )
