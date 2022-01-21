@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import logger from "redux-logger";
 
 // Reducers
-const feelingInput = (state, action) => {
+const feelingInput = (state = null, action) => {
     switch(action.type) {
         case 'INPUT_FEELING':
             return action.payload
@@ -19,7 +19,7 @@ const feelingInput = (state, action) => {
     return state;
 };
 
-const understandingInput = (state, action) => {
+const understandingInput = (state = null, action) => {
     switch(action.type) {
         case 'INPUT_UNDERSTANDING':
             return action.payload
@@ -27,7 +27,7 @@ const understandingInput = (state, action) => {
     return state;
 };
 
-const supportInput = (state, action) => {
+const supportInput = (state = null, action) => {
     switch(action.type) {
         case 'INPUT_SUPPORT':
             return action.payload
@@ -35,7 +35,7 @@ const supportInput = (state, action) => {
     return state;
 };
 
-const commentsInput = (state, action) => {
+const commentsInput = (state = null, action) => {
     switch(action.type) {
         case 'INPUT_COMMENTS':
             return action.payload
@@ -55,7 +55,7 @@ const store = createStore(
 );
 
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
         <App />
     </Provider>, 
 document.getElementById('root'));
