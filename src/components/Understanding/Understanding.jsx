@@ -24,7 +24,7 @@ function Understanding () {
             alert('Please select a choice')
         }
 
-        else if (understandingRating !== '' && supportInput !== ''){
+        else if (understandingRating !== '' && supportInput !== null){
             dispatch({
                 type: 'INPUT_UNDERSTANDING',
                 payload: understandingRating

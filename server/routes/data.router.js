@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+router.get('/admin', (req, res) => {
+    console.log('in router /admin get', req);
+})
+
 router.post('/', (req, res) => {
     console.log('in router /post', req.body);
 

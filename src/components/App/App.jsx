@@ -10,6 +10,7 @@ import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import ReviewPage from '../ReviewPage/ReviewPage';
 import SuccessPage from '../SuccessPage/SuccessPage';
+import AdminPage from '../AdminPage/AdminPage';
 
 function App() {
 
@@ -44,6 +45,10 @@ function App() {
 
     <Route path="/success" exact>
       <SuccessPage />
+    </Route>
+
+    <Route path="/admin" exact>
+      <AdminPage />
     </Route>
 
   </Router>

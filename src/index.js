@@ -51,6 +51,13 @@ const commentsInput = (state = null, action) => {
     return state;
 };
 
+const adminList = (state = [], action) => {
+    switch(action.type) {
+        case 'SET_ADMIN_LIST':
+            return action.payload;
+    }
+}
+
 // Create the store
 const store = createStore(
     combineReducers({
@@ -58,6 +65,7 @@ const store = createStore(
         understandingInput,
         supportInput,
         commentsInput,
+        adminList,
     }),
     applyMiddleware(logger)
 );
