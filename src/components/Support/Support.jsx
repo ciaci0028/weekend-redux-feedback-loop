@@ -9,18 +9,28 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 import Button from '@mui/material/Button';
 import '../App/App.css';
 import { useState } from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
 function Support () {
     const dispatch = useDispatch();
     const history = useHistory();
     const [supportRating, setSupportRating] = useState('');
+    const commentsInput = useSelector(store => store.commentsInput);
 
     const sendSupportRating = () => {
 
         if (supportRating === ''){
             alert('Please select an option')
+        }
+
+        else if (supportRating !== '' && commentsInput !== ''){
+            dispatch({
+                type: 'INPUT_SUPPORT',
+                payload: supportRating
+            })
+
+            history.push('/review');
         }
 
         else {
