@@ -9,18 +9,28 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 import Button from '@mui/material/Button';
 import '../App/App.css';
 import { useState } from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
 function Understanding () {
     const dispatch = useDispatch();
     const history = useHistory();
     const [understandingRating, setUnderstandingRating] = useState('');
+    const supportInput = useSelector(store => store.supportInput);
 
     const sendUnderstandingRating = () => {
 
         if (understandingRating === ''){
             alert('Please select a choice')
+        }
+
+        else if (understandingRating !== '' && supportInput !== ''){
+            dispatch({
+                type: 'INPUT_UNDERSTANDING',
+                payload: understandingRating
+            })
+            
+            history.push('/review');
         }
 
         else{

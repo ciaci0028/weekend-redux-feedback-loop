@@ -9,13 +9,14 @@ import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfi
 import Button from '@mui/material/Button';
 import '../App/App.css';
 import { useState } from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
 function Feeling () {
     const dispatch = useDispatch();
     const history = useHistory();
     const [feelingRating, setFeelingRating] = useState('');
+    const understandingInput = useSelector(store => store.understandingInput);
 
     const sendFeelingRating = () => {
 
@@ -23,7 +24,16 @@ function Feeling () {
             alert('Please select an option before moving on')
         }
 
-        else{
+        else if (feelingRating !== '' && understandingInput !== ''){
+            dispatch({
+                type: 'INPUT_FEELING',
+                payload: feelingRating
+            })
+
+            history.push('/review');
+        }
+
+        else {
 
             dispatch({
                 type: 'INPUT_FEELING',
