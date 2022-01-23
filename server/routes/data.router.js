@@ -4,6 +4,16 @@ const pool = require('../modules/pool');
 
 router.get('/admin', (req, res) => {
     console.log('in router /admin get', req);
+
+    pool.query(`SELECT * FROM "feedback"`)
+        .then((result) => {
+            res.send(result.rows);
+        })
+        .catch((error) => {
+            console.log('error in get /admin', error);
+            res.sendStatus(500);
+        })
+
 })
 
 router.post('/', (req, res) => {

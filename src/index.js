@@ -56,6 +56,7 @@ const adminList = (state = [], action) => {
         case 'SET_ADMIN_LIST':
             return action.payload;
     }
+    return state;
 }
 
 // Create the store
