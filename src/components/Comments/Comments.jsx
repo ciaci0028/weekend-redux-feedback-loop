@@ -39,6 +39,7 @@ function Comments () {
                     label="Comments"
                     multiline
                     rows={4}
+                    value={comments}
                     onChange={event => setComments(event.target.value)}
                 />
             </div>

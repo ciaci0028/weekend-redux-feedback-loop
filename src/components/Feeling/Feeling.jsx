@@ -24,7 +24,7 @@ function Feeling () {
             alert('Please select an option before moving on')
         }
 
-        else if (feelingRating !== '' && understandingInput !== ''){
+        else if (feelingRating !== '' && understandingInput !== null ){
             dispatch({
                 type: 'INPUT_FEELING',
                 payload: feelingRating

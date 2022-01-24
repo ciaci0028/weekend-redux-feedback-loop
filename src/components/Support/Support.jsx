@@ -24,7 +24,7 @@ function Support () {
             alert('Please select an option')
         }
 
-        else if (supportRating !== '' && commentsInput !== ''){
+        else if (supportRating !== '' && commentsInput !== null){
             dispatch({
                 type: 'INPUT_SUPPORT',
                 payload: supportRating
