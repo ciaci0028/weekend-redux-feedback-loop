@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 function AdminTable ({feedback, fetchAdminList}) {
 
     const deleteFeedback = (event) => {
-        console.log('feedback id', event.id)
         axios.delete(`/feedback/admin/${event.id}`)
             .then(res => {
                 console.log('/delete success', res);
@@ -14,6 +13,18 @@ function AdminTable ({feedback, fetchAdminList}) {
             })
             .catch(err => {
                 console.log('/delete error', err);
+            })
+    };
+
+    const updateFlag = (event) => {
+        axios.put(`/feedback/admin/${event.id}`)
+            .then(response => {
+                console.log('/put success', response);
+                fetchAdminList();
+                
+            })
+            .catch(err => {
+                console.log('put failure', err)
             })
     }
 
@@ -27,7 +38,7 @@ function AdminTable ({feedback, fetchAdminList}) {
             <TableCell align="right">{feedback.support}</TableCell>
             <TableCell>{feedback.comments}</TableCell>
             <TableCell><Button variant="contained" onClick={event => deleteFeedback(feedback)}>Delete</Button></TableCell>
-            <TableCell><Button variant="contained">Flag</Button></TableCell>
+            <TableCell><Button variant="contained" onClick={event => updateFlag(feedback)}>Flag</Button></TableCell>
         </TableRow>
     )
 };

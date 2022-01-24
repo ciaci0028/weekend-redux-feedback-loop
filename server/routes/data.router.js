@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 router.get('/admin', (req, res) => {
     console.log('in router /admin get', req);
 
-    pool.query(`SELECT * FROM "feedback"`)
+    pool.query(`SELECT * FROM "feedback" ORDER BY "date"`)
         .then((result) => {
             res.send(result.rows);
         })
@@ -63,6 +63,29 @@ router.delete('/admin/:id', (req, res) => {
         })
         .catch(err => {
             console.log('failed to delete', err);
+            res.sendStatus(500);
+        })
+});
+
+router.put('/admin/:id', (req, res) => {
+    console.log('in put', req.params.id);
+
+    let sqlText = `
+        UPDATE "feedback"
+        SET "flagged" = true
+        WHERE "id" = $1
+    `;
+
+    let sqlParams = [
+        req.params.id
+    ];
+
+    pool.query(sqlText, sqlParams)
+        .then(dbRes => {
+            res.sendStatus(200);
+        })
+        .catch(err => {
+            console.log('put failure', err);
             res.sendStatus(500);
         })
 })
