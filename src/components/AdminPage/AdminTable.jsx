@@ -3,13 +3,14 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
 
-function AdminTable ({feedback}) {
+function AdminTable ({feedback, fetchAdminList}) {
 
     const deleteFeedback = (event) => {
         console.log('feedback id', event.id)
         axios.delete(`/feedback/admin/${event.id}`)
             .then(res => {
                 console.log('/delete success', res);
+                fetchAdminList();
             })
             .catch(err => {
                 console.log('/delete error', err);

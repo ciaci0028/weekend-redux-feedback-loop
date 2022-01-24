@@ -43,8 +43,28 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         })
 
+});
+
+router.delete('/admin/:id', (req, res) => {
+    console.log('in delete', req.params.id)
+
+    let sqlText = `
+        DELETE FROM "feedback"
+        WHERE id = $1;
+    `;
+
+    let sqlParams = [
+        req.params.id
+    ];
+
+    pool.query(sqlText, sqlParams)
+        .then (response => {
+            res.sendStatus(200);
+        })
+        .catch(err => {
+            console.log('failed to delete', err);
+            res.sendStatus(500);
+        })
 })
-
-
 
 module.exports = router;

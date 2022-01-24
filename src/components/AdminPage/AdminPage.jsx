@@ -56,7 +56,11 @@ function AdminPage () {
                         </TableHead>
                         <TableBody>
                         {adminList.map((feedback) => (
-                            <AdminTable key={feedback.id} feedback={feedback}/>
+                            <AdminTable 
+                                key={feedback.id} 
+                                feedback={feedback}
+                                fetchAdminList={fetchAdminList}    
+                            />
                         ))}
                         </TableBody>
                     </Table>
