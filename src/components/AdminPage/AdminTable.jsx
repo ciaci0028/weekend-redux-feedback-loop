@@ -17,11 +17,11 @@ function AdminTable ({feedback, fetchAdminList}) {
     };
 
     const updateFlag = (event) => {
+
         axios.put(`/feedback/admin/${event.id}`)
             .then(response => {
                 console.log('/put success', response);
                 fetchAdminList();
-                
             })
             .catch(err => {
                 console.log('put failure', err)

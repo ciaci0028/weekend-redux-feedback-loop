@@ -72,11 +72,12 @@ router.put('/admin/:id', (req, res) => {
 
     let sqlText = `
         UPDATE "feedback"
-        SET "flagged" = true
-        WHERE "id" = $1
+        SET "flagged" = $1
+        WHERE "id" = $2
     `;
 
     let sqlParams = [
+        req.body.flagged,
         req.params.id
     ];
 
